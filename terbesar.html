@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Angka Terbesar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ade4ff; /* Latar belakang abu-abu muda */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Tinggi penuh viewport */
+            margin: 0; /* Menghilangkan margin default */
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333; /* Warna teks gelap untuk judul */
+            text-align: center; /* Memusatkan teks */
+        }
+
+        p {
+            color: #555; /* Warna teks abu-abu untuk paragraf */
+            text-align: center; /* Memusatkan teks */
+        }
+
+        input {
+            width: 90%; /* Lebar input 80% dari container */
+            padding: 10px; /* Jarak dalam input */
+            margin-top: 10px; /* Jarak atas untuk memisahkan dari elemen lain */
+            border: 1px solid #ccc; /* Garis batas abu-abu */
+            border-radius: 5px; /* Sudut membulat */
+            font-size: 16px; /* Ukuran font untuk kemudahan baca */
+        }
+
+        button {
+            width: 95%; /* Lebar tombol 80% dari container */
+            padding: 10px; /* Jarak dalam tombol */
+            margin-top: 10px; /* Jarak atas untuk memisahkan dari elemen lain */
+            background-color: #007bff; /* Warna latar belakang tombol biru */
+            color: #fff; /* Warna teks putih */
+            border: none; /* Menghilangkan garis batas default */
+            border-radius: 5px; /* Sudut membulat */
+            cursor: pointer; /* Menampilkan kursor pointer saat hover */
+            font-size: 16px; /* Ukuran font untuk kemudahan baca */
+            transition: background-color 0.3s; /* Efek transisi untuk warna latar belakang */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Warna latar belakang saat hover */
+        }
+
+        .result {
+            margin-top: 20px; /* Jarak atas untuk memisahkan dari elemen lain */
+            color: #333; /* Warna teks gelap untuk hasil */
+            font-weight: bold; /* Menebalkan teks hasil */
+            font-size: 1.2em; /* Ukuran font sedikit lebih besar */
+            text-align: center; /* Memusatkan teks hasil */
+        }
+
+        .back-button {
+            width: 40%;
+            margin-top: 5px;
+            background-color: #dc3545;
+        }
+
+        .back-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cari Angka Terbesar dari Daftar Angka</h1>
+        <p>Masukkan daftar angka positif yang dipisahkan dengan koma:</p>
+
+        <input type="text" id="numberList" placeholder="Contoh: 10, 25, 30, 50">
+        <button onclick="findMax()">Cari Angka Terbesar</button>
+
+        <p id="result" class="result"></p>
+
+        <button class="back-button" onclick="goBack()">Kembali</button>
+    </div>
+        <script>
+            function findMax() {
+                const input = document.getElementById("numberList").value;
+                const numbers = input.split(',').map(num => parseFloat(num.trim())); // Mengubah input menjadi array angka
+
+                // Validasi: jika ada nilai non-angka atau negatif
+                if (numbers.some(isNaN) || numbers.some(num => num <= 0)) {
+                    document.getElementById("result").textContent = "Masukkan hanya angka positif yang valid!";
+                    return;
+                }
+
+                // Mencari angka terbesar
+                const maxNumber = Math.max(...numbers);
+                document.getElementById("result").textContent = "Angka terbesar adalah: " + maxNumber;
+            }
+
+            function goBack() {
+            window.location.href = 'index.html'; // Mengarahkan pengguna kembali ke index.html
+            }
+        </script>
+</body>
+</html>

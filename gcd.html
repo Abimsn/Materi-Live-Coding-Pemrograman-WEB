@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung FPB dari Dua Bilangan Bulat</title>
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #ade4ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            width: 500px;
+        }
+        h1 {
+            margin-bottom: 0px;
+            color: #333;
+            size: 20px;
+        }
+        h2{
+            margin-top: 0px;
+            color: #333;
+            size: 14px;
+        }
+        p {
+            color: #555;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 95%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .back-button {
+            width: 40%;
+            margin-top: 5px;
+            background-color: #dc3545;
+        }
+        .back-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung FPB</h1>
+        <h2>(Faktor Persekutuan Terbesar)</h2>
+        <p>Masukkan dua bilangan bulat (positif atau negatif):</p>
+
+        <input type="number" id="num1" placeholder="Bilangan pertama">
+        <input type="number" id="num2" placeholder="Bilangan kedua">
+        <button onclick="calculateGCD()">Hitung FPB</button>
+
+        <p id="result"></p>
+
+        <button class="back-button" onclick="goBack()">Kembali</button>
+    </div>
+    <script>
+        // Fungsi untuk menghitung FPB menggunakan algoritma Euclidean
+        function gcd(a, b) {
+            if (b === 0) {
+                return Math.abs(a); // Mengembalikan nilai absolut dari a
+            }
+            return gcd(b, a % b);
+        }
+
+        // Fungsi utama yang di-trigger saat tombol diklik
+        function calculateGCD() {
+            const num1 = parseInt(document.getElementById("num1").value);
+            const num2 = parseInt(document.getElementById("num2").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").textContent = "Masukkan dua bilangan bulat yang valid.";
+                return;
+            }
+
+            const resultGCD = gcd(num1, num2);
+            document.getElementById("result").textContent = "FPB dari " + num1 + " dan " + num2 + " adalah: " + resultGCD;
+        }
+
+        function goBack() {
+            window.location.href = 'index.html'; // Mengarahkan pengguna kembali ke index.html
+        }
+    </script>
+
+</body>
+</html>

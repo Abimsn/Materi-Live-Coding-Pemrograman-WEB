@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mencari Akar Persamaan Kuadrat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ade4ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 95%;
+        }
+        button:hover {
+            background-color: #007bff;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .back-button {
+            width: 40%;
+            margin-top: 5px;
+            background-color: #dc3545;
+        }
+        .back-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Mencari Akar Persamaan Kuadrat</h1>
+    <p>Masukkan koefisien a, b, dan c dari persamaan kuadrat</p>
+    <p>(ax² + bx + c = 0)</p>
+
+    <input type="number" id="a" placeholder="Koefisien a" required>
+    <input type="number" id="b" placeholder="Koefisien b" required>
+    <input type="number" id="c" placeholder="Koefisien c" required>
+    <button onclick="findRoots()">Hitung Akar</button>
+
+    <p id="result"></p>
+
+    <button class="back-button" onclick="goBack()">Kembali</button>
+</div>
+
+<script>
+    function findRoots() {
+        const a = parseFloat(document.getElementById("a").value);
+        const b = parseFloat(document.getElementById("b").value);
+        const c = parseFloat(document.getElementById("c").value);
+
+        // Menghitung diskriminan
+        const discriminant = b * b - 4 * a * c;
+
+        // Validasi: Pastikan a tidak sama dengan 0
+        if (a === 0) {
+            document.getElementById("result").textContent = "Koefisien 'a' tidak boleh sama dengan 0.";
+            return;
+        }
+
+        // Menghitung akar berdasarkan nilai diskriminan
+        if (discriminant > 0) {
+            const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            document.getElementById("result").textContent = `Akar-akar persamaan kuadrat adalah: ${root1} dan ${root2}`;
+        } else if (discriminant === 0) {
+            const root = -b / (2 * a);
+            document.getElementById("result").textContent = `Akar ganda persamaan kuadrat adalah: ${root}`;
+        } else {
+            document.getElementById("result").textContent = "Persamaan kuadrat tidak memiliki akar real.";
+        }
+    }
+
+    function goBack() {
+            window.location.href = 'index.html'; // Mengarahkan pengguna kembali ke index.html
+    }
+</script>
+
+</body>
+</html>

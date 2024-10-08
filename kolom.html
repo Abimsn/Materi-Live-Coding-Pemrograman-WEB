@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mencari Karakter Terbanyak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ade4ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            width: 500px;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width:95%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result, .search-container {
+            margin-top: 20px;
+        }
+        .result {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .back-button {
+            width:40%;
+            margin-top: 5px;
+            background-color: #dc3545;
+        }
+        .back-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mencari Karakter Terbanyak</h1>
+
+        <!-- Input untuk memasukkan 5 urutan -->
+        <input type="text" id="inputString1" placeholder="Urutan 1" required>
+        <input type="text" id="inputString2" placeholder="Urutan 2" required>
+        <input type="text" id="inputString3" placeholder="Urutan 3" required>
+        <input type="text" id="inputString4" placeholder="Urutan 4" required>
+        <input type="text" id="inputString5" placeholder="Urutan 5" required>
+        <button onclick="storeStrings()">Simpan Urutan</button>
+
+        <!-- Container untuk mencari karakter yang dicari -->
+        <div class="search-container" id="searchArea" style="display: none;">
+            <input type="text" id="searchChar" placeholder="Karakter yang dicari" required>
+            <button onclick="findMaxCount()">Cari Karakter</button>
+        </div>
+
+        <!-- Container untuk menampilkan hasil -->
+        <p class="result" id="result"></p>
+
+        <button class="back-button" onclick="goBack()">Kembali</button>
+    </div>
+
+    <script>
+        let strings = [];
+
+        function storeStrings() {
+            // Menyimpan 5 urutan ke dalam array
+            strings = [
+                document.getElementById('inputString1').value,
+                document.getElementById('inputString2').value,
+                document.getElementById('inputString3').value,
+                document.getElementById('inputString4').value,
+                document.getElementById('inputString5').value
+            ];
+
+            // Menampilkan area pencarian karakter setelah urutan disimpan
+            document.getElementById('searchArea').style.display = 'block';
+        }
+
+        function findMaxCount() {
+            const char = document.getElementById('searchChar').value;
+            if (!char) {
+                document.getElementById('result').innerText = "Masukkan karakter yang ingin dicari.";
+                return;
+            }
+
+            let maxCount = 0;
+
+            // Loop untuk mencari karakter dan menghitung kemunculan maksimal
+            for (const str of strings) {
+                const count = [...str].filter(c => c === char).length;
+                if (count > maxCount) {
+                    maxCount = count;
+                }
+            }
+
+            // Menampilkan hasil di container
+            document.getElementById('result').innerText = `Karakter '${char}' muncul maksimal ${maxCount} kali.`;
+        }
+
+        function goBack() {
+            window.location.href = 'index.html'; // Mengarahkan pengguna kembali ke index.html
+        }
+    </script>
+</body>
+</html>

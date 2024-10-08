@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Live Coding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Menggunakan font Arial */
+            background-color: #ade4ff; /* Latar belakang abu-abu muda */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Tinggi penuh viewport */
+            margin: 0; /* Menghilangkan margin default */
+        }
+
+        .container {
+            background-color: #fff; /* Warna latar belakang putih untuk container */
+            padding: 20px; /* Jarak dalam container */
+            border-radius: 8px; /* Sudut membulat pada container */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan pada container */
+            text-align: center; /* Teks di tengah */
+            width: 500px; /* Lebar container */
+            margin: 0px; /* Jarak bawah untuk pemisahan */
+        }
+
+        .materi {
+            width: 500px; /* Lebar materi */
+            background-color: #fff; /* Warna latar belakang putih untuk container */
+            padding: 20px; /* Jarak dalam container */
+            border-radius: 8px; /* Sudut membulat pada container */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan pada container */
+            text-align: left; /* Teks di sebelah kiri untuk materi */
+            margin-top: 10px; /* Jarak atas untuk pemisahan */
+        }
+
+        h1 {
+            color: #333; /* Warna teks gelap untuk judul */
+            margin-bottom: 10px; /* Jarak bawah untuk pemisahan */
+        }
+
+        h2, h3 {
+            color: #333; /* Warna teks gelap untuk subjudul */
+        }
+
+        h2 {
+            margin: 0px; /* Menghilangkan margin atas untuk subjudul */
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin: 0; /* Menghilangkan margin atas untuk subjudul */
+        }
+
+        ul {
+            list-style-type: disc; /* Mengubah tipe list menjadi disk */
+            padding-left: 20px; /* Jarak kiri untuk list */
+            margin: 0px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block; /* Menampilkan tombol sebagai blok inline */
+            margin: 10px 0; /* Jarak atas dan bawah antar tombol */
+            padding: 10px 20px; /* Jarak dalam tombol */
+            border: none; /* Menghilangkan border default */
+            border-radius: 5px; /* Sudut membulat pada tombol */
+            background-color: #007bff; /* Warna latar belakang biru untuk tombol */
+            color: #fff; /* Warna teks putih untuk tombol */
+            cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+            transition: background-color 0.3s; /* Transisi untuk efek hover */
+            font-size: 16px; /* Ukuran font pada tombol */
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Warna latar belakang saat hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Penyelesaian</h1>
+        <button class="button" onclick="window.location.href='kolom.html'">Kolom</button>
+        <button class="button" onclick="window.location.href='gcd.html'">GCD</button>
+        <button class="button" onclick="window.location.href='kuadrat.html'">KUADRAT</button>
+        <button class="button" onclick="window.location.href='terbesar.html'">TERBESAR</button>
+    </div>
+    <div class="materi">
+        <h2>Materi Live coding</h2>
+        <h3>Soal</h3>
+        <ul>
+            <li>Given a list of positive numbers, return the largest number on the list</li>
+            <li>Write a program which takes two integer and calculate GCD of two integers</li>
+            <li>Write a program to Find all Roots of a Quadratic equation by accepting coefficients of a quadratic equation from the user and displays the roots</li>
+            <li>Write a program that asks the user to input 5 sequences of characters. Then it will ask the user for a character to search for and will output the maximum number of times that it occurred between the 5 sequences. Example: Sequence 1: aabc Sequence 2: aaaa If the user chooses to search for character 'a', the program will output "Character a occurred a maximum of 4 times" because it occurred 4 times in the second sequence, and only twice in the first sequence.</li>
+
+        </ul>
+    </div>
+</body>
+</html>
